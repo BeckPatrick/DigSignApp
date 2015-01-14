@@ -1,5 +1,6 @@
 package com.example.signapp;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -208,13 +209,17 @@ public class SignAppMain extends Activity {
 			
 			ImageView imageView = (ImageView)findViewById(R.id.imgView2);
 			ContentResolver cr = getContentResolver();
-			Bitmap bitmap;
+			Bitmap bitmap ;
+			
 			
 			try{
 			bitmap = MediaStore.Images.Media.getBitmap(cr, selectedImage);
+			
 			imageView.setImageBitmap(bitmap);
+
 			}catch(Exception e){
-			Log.e(logtag, e.toString());	
+			Log.e(logtag, e.toString());
+			
 			}
 			
 		}
@@ -343,5 +348,5 @@ public class SignAppMain extends Activity {
 		c.close();
 		db.close();
 	}
-
+	
 }
